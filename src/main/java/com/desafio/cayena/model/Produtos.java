@@ -2,19 +2,22 @@ package com.desafio.cayena.model;
 
 
 import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
 @Table(name = "produtos")
-public class ProdutosModel implements Serializable {
+public class Produtos implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
     private Integer id;
 
     @Column(name = "name")
@@ -29,10 +32,10 @@ public class ProdutosModel implements Serializable {
     @Column(name = "supplier_id")
     private Long supplierId;
 
+    @UpdateTimestamp
     @Column(name = "date_of_creation")
-    private Date dateOfCreation;
+    private LocalDateTime dateOfCreation;
 
     @Column(name = "date_of_the_last_update")
-    private Date dateOfTheLastUpdate;
-
+    private LocalDateTime dateOfTheLastUpdate;
 }
