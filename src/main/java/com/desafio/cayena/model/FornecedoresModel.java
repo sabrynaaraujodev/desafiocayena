@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Data
 @Entity
@@ -11,15 +12,15 @@ import java.io.Serializable;
 public class FornecedoresModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Integer id;
 
     @Column(name = "name")
     private String name;
 
     @Column(name = "date_of_creation")
-    private String dateOfCreation;
+    private Date dateOfCreation;
 
     @Column(name = "date_of_the_last_update")
-    private String dateOfTheLastUpdate;
+    private Date dateOfTheLastUpdate;
 
 }

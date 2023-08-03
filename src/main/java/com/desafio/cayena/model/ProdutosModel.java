@@ -5,6 +5,8 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Data
 @Entity
@@ -13,24 +15,24 @@ public class ProdutosModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Integer id;
 
     @Column(name = "name")
     private String name;
 
     @Column(name = "quantity_in_stock")
-    private String quantityInStock;
+    private Integer quantityInStock;
 
     @Column(name = "unit_price")
-    private String unitPrice;
+    private BigDecimal unitPrice;
 
     @Column(name = "supplier_id")
-    private String supplierId;
+    private Long supplierId;
 
     @Column(name = "date_of_creation")
-    private String dateOfCreation;
+    private Date dateOfCreation;
 
     @Column(name = "date_of_the_last_update")
-    private String dateOfTheLastUpdate;
+    private Date dateOfTheLastUpdate;
 
 }
