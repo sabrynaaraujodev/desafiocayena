@@ -11,17 +11,15 @@
 
 # 🛠️ Abrir e rodar o projeto
 
+- Para rodar este microserviço se faz necessário ter em sua máquina o MYSql instalado.
 - criar o esquema no mysql 
   -     CREATE SCHEMA desafio;
 - As configurações de BD estão em dois pontos do projeto 
-  - resouces/properties e pom (plugin do flywaydb) , se as informações locais forem diferentes é necessario ajustar.
-    - jdbc:mysql://localhost:3306/desafio
-  - Para rodar este microserviço se faz necessário ter em sua máquina o MYSql instalado. 
-    Depois que o mesmo já estiver configurado, realizar alteração das propriedades 
-    spring.datasource.username e spring.datasource.password no arquivo
-    "desafio-spring-boot/src/main/resources/application-dbg.properties"
-    setando para o username e password escolhido.
-  - 
+  - resouces/properties e pom (plugin do flywaydb)
+    - se as informações locais forem diferentes é necessario ajustar
+      - jdbc:mysql://localhost:3306/desafio
+      - username e password
+  
 - As tabelas fornecedores e produtos são criados através das migrations quando a aplicação é iniciada.
 - Executar no terminal o comando "mvn clean install" para instalar e atualizar as dependencias
 - Startar o projeto
