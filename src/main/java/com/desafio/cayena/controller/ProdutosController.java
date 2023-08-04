@@ -26,7 +26,7 @@ public class ProdutosController {
         return produtosRepository.findAll();
     }
 
-    @GetMapping(value = "/produto/{id}")
+    @GetMapping(value = "/consultar/{id}")
     public ResponseEntity<Produtos> consultaProduto(@PathVariable Integer id) {
         Produtos produto = produtosRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException(PRODUTO_NAO_ENCONTRADO_MSG + id));
@@ -34,7 +34,7 @@ public class ProdutosController {
     }
 
     @PostMapping(value = "/cadastrar")
-    public ResponseEntity<Produtos> cadastraProduto(@RequestBody Produtos produto) {
+    public ResponseEntity<Produtos> cadastraProduto(@Valid @RequestBody Produtos produto) {
         produto.setDateOfCreation(LocalDateTime.now());
         Produtos produtoSalvo = produtosRepository.save(produto);
         return ResponseEntity.status(HttpStatus.CREATED).body(produtoSalvo);
@@ -60,11 +60,11 @@ public class ProdutosController {
     }
 
     @DeleteMapping(value = "/excluir/{id}")
-    public ResponseEntity<Void> excluiProduto(@PathVariable Integer id) {
+    public ResponseEntity<String> excluiProduto(@PathVariable Integer id) {
         Produtos produto = produtosRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException(PRODUTO_NAO_ENCONTRADO_MSG + id));
         produtosRepository.delete(produto);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok("Produto excluído com sucesso!");
     }
 
 }

@@ -21,24 +21,23 @@ public class Produtos implements Serializable {
     @GenericGenerator(name = "native", strategy = "native")
     private Integer id;
 
-    @NotNull
     @NotBlank
+    @NotNull(message = "O nome do produto não pode ser nulo.")
     @Column(name = "name", nullable = false)
     private String name;
 
-    @NotNull
+    @NotNull(message = "A quantidade em estoque não pode ser nula.")
     @Column(name = "quantity_in_stock", nullable = false)
     private Integer quantityInStock;
 
-    @NotNull
+    @NotNull(message = "O preço unitário não pode ser nulo.")
     @Column(name = "unit_price", nullable = false)
     private BigDecimal unitPrice;
 
-    @NotNull
+    @NotNull(message = "A identificação do fornecedor não pode ser nula.")
     @Column(name = "supplier_id", nullable = false)
     private Long supplierId;
 
-    @NotNull
     @Column(name = "date_of_creation")
     private LocalDateTime dateOfCreation;
 
