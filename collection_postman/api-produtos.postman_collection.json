@@ -27,12 +27,12 @@
 			"response": []
 		},
 		{
-			"name": "/api/produtos/1",
+			"name": "/produtos/consultar/{id}",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/produtos/1",
+					"raw": "http://localhost:8080/api/produtos/consultar/19",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -41,6 +41,7 @@
 					"path": [
 						"api",
 						"produtos",
+						"consultar",
 						"1"
 					]
 				}
@@ -48,12 +49,12 @@
 			"response": []
 		},
 		{
-			"name": "/deletar/api/produtos/deletar/1",
+			"name": "/deletar/api/produtos/deletar/{id}",
 			"request": {
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/produtos/deletar/1",
+					"raw": "http://localhost:8080/api/produtos/excluir/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -62,7 +63,7 @@
 					"path": [
 						"api",
 						"produtos",
-						"deletar",
+						"excluir",
 						"1"
 					]
 				}
@@ -70,13 +71,13 @@
 			"response": []
 		},
 		{
-			"name": "/api/produtos/alterar",
+			"name": "/api/produtos/alterar/{id}",
 			"request": {
 				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"feijao camil\",\r\n    \"quantityInStock\": 10000,\r\n    \"unitPrice\": 5,\r\n    \"supplierId\": 1,\r\n    \"dateOfTheLastUpdate\": null\r\n}",
+					"raw": "{\r\n    \"name\": \"fei\",\r\n    \"quantityInStock\": 67787,\r\n    \"unitPrice\": 5,\r\n    \"supplierId\": 1\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -84,7 +85,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/produtos/alterar",
+					"raw": "http://localhost:8080/api/produtos/atualizar/18",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -93,7 +94,40 @@
 					"path": [
 						"api",
 						"produtos",
-						"alterar"
+						"atualizar",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/produtos/atualizar/estoque/{id}",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"quantityInStock\": 654\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/produtos/atualizar/estoque/19",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"produtos",
+						"atualizar",
+						"estoque",
+						"1"
 					]
 				}
 			},
@@ -106,7 +140,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"feijao camil\",\r\n    \"quantityInStock\": 800,\r\n    \"unitPrice\": 7,\r\n    \"supplierId\": 1,\r\n    \"dateOfTheLastUpdate\": null\r\n}",
+					"raw": "{\r\n  \"name\": \"Café Pele\",\r\n  \"quantityInStock\": 100000,\r\n  \"unitPrice\": 9.99,\r\n  \"supplierId\": 1\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
