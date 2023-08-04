@@ -29,15 +29,17 @@ public class ProdutoService {
         produtosRepository.delete(produto);
     }
 
-    public Produtos atualizarEstoqueProduto(Integer id, Integer quantityInStock) {
-        Produtos produto = produtosRepository.findById(id)
+
+    public Produtos atualizarQuantidadeEmEstoque(Integer id, Integer novaQuantidade) {
+        Produtos produtoExistente = produtosRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException(PRODUTO_NAO_ENCONTRADO_MSG + id));
 
-        produto.setQuantityInStock(quantityInStock);
-        produto.setDateOfTheLastUpdate(LocalDateTime.now());
+        produtoExistente.setQuantityInStock(novaQuantidade);
+        produtoExistente.setDateOfTheLastUpdate(LocalDateTime.now());
 
-        return produtosRepository.save(produto);
+        return produtosRepository.save(produtoExistente);
     }
+
 
     public Produtos atualizarProduto(Integer id, Produtos produtoAtualizado) {
         Produtos produtoExistente = produtosRepository.findById(id)
