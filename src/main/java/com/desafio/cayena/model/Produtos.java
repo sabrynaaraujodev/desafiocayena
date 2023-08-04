@@ -3,9 +3,10 @@ package com.desafio.cayena.model;
 
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -20,19 +21,24 @@ public class Produtos implements Serializable {
     @GenericGenerator(name = "native", strategy = "native")
     private Integer id;
 
-    @Column(name = "name")
+    @NotNull
+    @NotBlank
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "quantity_in_stock")
+    @NotNull
+    @Column(name = "quantity_in_stock", nullable = false)
     private Integer quantityInStock;
 
-    @Column(name = "unit_price")
+    @NotNull
+    @Column(name = "unit_price", nullable = false)
     private BigDecimal unitPrice;
 
-    @Column(name = "supplier_id")
+    @NotNull
+    @Column(name = "supplier_id", nullable = false)
     private Long supplierId;
 
-    @UpdateTimestamp
+    @NotNull
     @Column(name = "date_of_creation")
     private LocalDateTime dateOfCreation;
 
