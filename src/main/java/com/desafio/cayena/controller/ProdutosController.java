@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api/produtos/")
@@ -50,6 +51,15 @@ public class ProdutosController {
         } catch (Exception e) {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @PutMapping("alterar/estoque/{id}/{quantityInStock}")
+    public Optional<Produtos> alterarEstoque(@PathVariable Integer quantityInStock, @PathVariable Integer id) {
+        return produtosRepository.findById(id)
+                .map(produtos -> {
+                    produtos.setQuantityInStock(quantityInStock);
+                    return produtosRepository.save(produtos);
+                });
     }
 
 

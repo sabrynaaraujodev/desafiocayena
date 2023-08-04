@@ -13,6 +13,12 @@
 
 - criar o esquema no mysql 
   -     CREATE SCHEMA desafio;
+  - Para rodar este microserviço se faz necessário ter em sua máquina o MYSql instalado. 
+    Depois que o mesmo já estiver configurado, realizar alteração das propriedades 
+    spring.datasource.username e spring.datasource.password no arquivo
+    "desafio-spring-boot/src/main/resources/application-dbg.properties"
+    setando para o username e password escolhido.
+  - 
 - As tabelas fornecedores e produtos são criados através das migrations quando a aplicação é iniciada.
 - Executar no terminal o comando "mvn clean install" para instalar e atualizar as dependencias
 - Startar o projeto
