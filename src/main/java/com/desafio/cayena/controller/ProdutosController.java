@@ -46,7 +46,7 @@ public class ProdutosController {
         return ResponseEntity.ok(produto);
     }
 
-    @PatchMapping(value = "/atualizar/{id}")
+    @PatchMapping(value = "/atualizar/estoque/{id}")
     public ResponseEntity<Produtos> atualizaQuantidadeEmEstoque(@PathVariable Integer id, @RequestBody Produtos produto) {
         Integer quantityInStock = produto.getQuantityInStock();
         Produtos produtoAtualizado = produtosService.atualizarQuantidadeEmEstoque(id, quantityInStock);
