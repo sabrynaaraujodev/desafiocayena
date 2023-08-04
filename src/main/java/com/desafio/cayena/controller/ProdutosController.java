@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -58,6 +59,7 @@ public class ProdutosController {
         return produtosRepository.findById(id)
                 .map(produtos -> {
                     produtos.setQuantityInStock(quantityInStock);
+                    produtos.setDateOfTheLastUpdate(LocalDateTime.now());
                     return produtosRepository.save(produtos);
                 });
     }
